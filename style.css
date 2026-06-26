@@ -15,7 +15,7 @@ html, body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: baseline;
   padding: 2rem 2rem 0 2rem;
 }
@@ -51,11 +51,11 @@ main {
 }
 
 main.home {
-  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 3rem 1.5rem;
 }
 
 .accordion {
