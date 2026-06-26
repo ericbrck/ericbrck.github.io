@@ -22,41 +22,62 @@
 (function () {
   var el = document.getElementById('home-name');
   var text = el.textContent;
+  var glyphs = '/\\|.:-+*#';
   el.innerHTML = '';
   var spans = [];
   for (var i = 0; i < text.length; i++) {
+    var ch = text[i];
     var s = document.createElement('span');
-    s.textContent = text[i];
+    s.textContent = ch;
     s.style.display = 'inline-block';
+    s.dataset.orig = ch;
     el.appendChild(s);
-    spans.push(s);
+    if (ch !== ' ') spans.push(s);
   }
 
-  function update(x, y) {
+  var radius = 120;
+  var mx = -9999, my = -9999;
+  var ticking = false;
+
+  function render() {
+    ticking = false;
     spans.forEach(function (s) {
       var r = s.getBoundingClientRect();
       var cx = r.left + r.width / 2;
       var cy = r.top + r.height / 2;
-      var dx = x - cx;
-      var dy = y - cy;
+      var dx = mx - cx;
+      var dy = my - cy;
       var dist = Math.sqrt(dx * dx + dy * dy);
-      var max = 160;
-      var force = Math.max(0, 1 - dist / max);
-      var push = force * 14;
-      var angle = Math.atan2(dy, dx);
-      var tx = -Math.cos(angle) * push;
-      var ty = -Math.sin(angle) * push;
-      var scale = 1 + force * 0.15;
-      s.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + scale.toFixed(2) + ')';
+      if (dist < radius) {
+        var force = 1 - dist / radius;
+        if (Math.random() < force) {
+          s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+        } else {
+          s.textContent = s.dataset.orig;
+        }
+      } else {
+        s.textContent = s.dataset.orig;
+      }
     });
   }
 
+  function schedule() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(render);
+    }
+  }
+
   window.addEventListener('mousemove', function (e) {
-    update(e.clientX, e.clientY);
+    mx = e.clientX;
+    my = e.clientY;
+    schedule();
   });
 
   window.addEventListener('mouseleave', function () {
-    spans.forEach(function (s) { s.style.transform = 'none'; });
+    mx = -9999;
+    my = -9999;
+    schedule();
   });
 })();
 </script>
