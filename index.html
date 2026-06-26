@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric Brock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <span class="brand is-home">ERIC BROCK</span>
+  <nav>
+    <a href="/work/">work</a>
+    <a href="/coaching/">coaching</a>
+    <a href="/about/">about</a>
+  </nav>
+</header>
+<main class="home">
+  <div id="home-name" class="home-name">ERIC BROCK</div>
+</main>
+<script>
+(function () {
+  var el = document.getElementById('home-name');
+  var text = el.textContent;
+  el.innerHTML = '';
+  var spans = [];
+  for (var i = 0; i < text.length; i++) {
+    var s = document.createElement('span');
+    s.textContent = text[i];
+    s.style.display = 'inline-block';
+    el.appendChild(s);
+    spans.push(s);
+  }
+
+  function update(x, y) {
+    spans.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      var dx = x - cx;
+      var dy = y - cy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var max = 160;
+      var force = Math.max(0, 1 - dist / max);
+      var push = force * 14;
+      var angle = Math.atan2(dy, dx);
+      var tx = -Math.cos(angle) * push;
+      var ty = -Math.sin(angle) * push;
+      var scale = 1 + force * 0.15;
+      s.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + scale.toFixed(2) + ')';
+    });
+  }
+
+  window.addEventListener('mousemove', function (e) {
+    update(e.clientX, e.clientY);
+  });
+
+  window.addEventListener('mouseleave', function () {
+    spans.forEach(function (s) { s.style.transform = 'none'; });
+  });
+})();
+</script>
+</body>
+</html>
