@@ -16,7 +16,9 @@
   </nav>
 </header>
 <section class="hero">
-  <img class="hero-column" src="/assets/column_drawing.svg" alt="">
+  <div class="hero-column-frame">
+    <img class="hero-column" src="/assets/column_drawing.svg" alt="">
+  </div>
   <main class="home">
     <div id="home-name" class="home-name">ERIC BROCK</div>
   </main>
@@ -37,6 +39,11 @@
     el.appendChild(s);
     if (ch !== ' ') spans.push(s);
   }
+
+  var cursor = document.createElement('span');
+  cursor.textContent = '_';
+  cursor.className = 'home-cursor';
+  el.appendChild(cursor);
 
   var radius = 120;
   var mx = -9999, my = -9999;

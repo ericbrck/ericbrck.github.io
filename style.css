@@ -55,15 +55,24 @@ main {
   overflow: hidden;
 }
 
-.hero-column {
+.hero-column-frame {
   position: absolute;
-  left: -8vw;
-  top: 30vh;
-  width: 38vw;
-  max-width: 560px;
-  min-width: 220px;
+  left: 0;
+  top: 0;
+  width: 48vw;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
   z-index: 0;
+}
+
+.hero-column {
+  position: absolute;
+  left: -28vw;
+  top: -63vh;
+  width: 88vw;
+  max-width: 1300px;
+  min-width: 500px;
 }
 
 main.home {
@@ -82,6 +91,16 @@ main.home {
   letter-spacing: 0.08em;
   cursor: default;
   user-select: none;
+}
+
+.home-cursor {
+  display: inline-block;
+  margin-left: 0.15em;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .project-list, .section-list {
@@ -144,9 +163,13 @@ p {
     font-size: 2rem;
   }
 
+  .hero-column-frame {
+    width: 62vw;
+  }
+
   .hero-column {
-    width: 55vw;
-    top: 32vh;
-    left: -14vw;
+    width: 130vw;
+    top: 28vh;
+    left: -42vw;
   }
 }
