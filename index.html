@@ -18,6 +18,10 @@
 <main class="home">
   <div id="home-name" class="home-name">ERIC BROCK</div>
 </main>
+<div class="corner-drawing">
+  <img class="corner-drawing-base" src="/assets/column-study.jpg" alt="">
+  <img class="corner-drawing-reveal" id="drawing-reveal" src="/assets/column-study.jpg" alt="">
+</div>
 <script>
 (function () {
   var el = document.getElementById('home-name');
@@ -78,6 +82,25 @@
     mx = -9999;
     my = -9999;
     schedule();
+  });
+})();
+
+(function () {
+  var reveal = document.getElementById('drawing-reveal');
+  if (!reveal) return;
+
+  function update(x, y) {
+    var r = reveal.getBoundingClientRect();
+    reveal.style.setProperty('--mx', (x - r.left) + 'px');
+    reveal.style.setProperty('--my', (y - r.top) + 'px');
+  }
+
+  window.addEventListener('mousemove', function (e) {
+    update(e.clientX, e.clientY);
+  });
+
+  window.addEventListener('mouseleave', function () {
+    update(-9999, -9999);
   });
 })();
 </script>
