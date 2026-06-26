@@ -50,8 +50,26 @@ main {
   padding: 6rem 1.5rem 4rem 1.5rem;
 }
 
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-column {
+  position: absolute;
+  left: -8vw;
+  top: 30vh;
+  width: 38vw;
+  max-width: 560px;
+  min-width: 220px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 main.home {
-  min-height: 70vh;
+  position: relative;
+  z-index: 1;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,5 +142,11 @@ p {
 
   .home-name {
     font-size: 2rem;
+  }
+
+  .hero-column {
+    width: 55vw;
+    top: 32vh;
+    left: -14vw;
   }
 }
