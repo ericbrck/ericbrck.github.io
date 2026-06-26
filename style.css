@@ -117,10 +117,25 @@ p {
   font-weight: 300;
 }
 
-.tags {
+.spec-table {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  row-gap: 0.4rem;
+  column-gap: 1rem;
+  margin-top: 1rem;
   font-size: 0.85rem;
+}
+
+.spec-table dt {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.spec-table dd {
   font-weight: 300;
-  margin-top: 0.75rem;
+  margin: 0;
 }
 
 @media (max-width: 600px) {
@@ -141,5 +156,14 @@ p {
 
   .home-name {
     font-size: 2rem;
+  }
+
+  .spec-table {
+    grid-template-columns: 1fr;
+    row-gap: 0.2rem;
+  }
+
+  .spec-table dd {
+    margin-bottom: 0.6rem;
   }
 }
