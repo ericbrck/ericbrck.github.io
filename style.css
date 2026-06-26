@@ -109,41 +109,7 @@ p {
   font-weight: 300;
 }
 
-.corner-drawing {
-  position: fixed;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  width: 280px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-drawing img {
-  display: block;
-  width: 100%;
-}
-
-.corner-drawing-base {
-  opacity: 0.06;
-  mix-blend-mode: multiply;
-}
-
-.corner-drawing-reveal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.85;
-  mix-blend-mode: multiply;
-  --mx: -9999px;
-  --my: -9999px;
-  -webkit-mask-image: radial-gradient(140px circle at var(--mx) var(--my), black, transparent 70%);
-  mask-image: radial-gradient(140px circle at var(--mx) var(--my), black, transparent 70%);
-}
-
 @media (max-width: 600px) {
-  .corner-drawing {
-    width: 180px;
-  }
 
   header {
     flex-direction: column;
