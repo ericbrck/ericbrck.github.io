@@ -50,35 +50,8 @@ main {
   padding: 6rem 1.5rem 4rem 1.5rem;
 }
 
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-column-frame {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48vw;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-column {
-  position: absolute;
-  left: -28vw;
-  top: -63vh;
-  width: 88vw;
-  max-width: 1300px;
-  min-width: 500px;
-}
-
 main.home {
-  position: relative;
-  z-index: 1;
-  min-height: 90vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +68,7 @@ main.home {
 
 .home-cursor {
   display: inline-block;
+  font-weight: 400;
   margin-left: 0.15em;
   animation: blink 1s steps(1) infinite;
 }
@@ -161,15 +135,5 @@ p {
 
   .home-name {
     font-size: 2rem;
-  }
-
-  .hero-column-frame {
-    width: 62vw;
-  }
-
-  .hero-column {
-    width: 130vw;
-    top: 28vh;
-    left: -42vw;
   }
 }
