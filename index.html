@@ -10,14 +10,55 @@
 <header>
   <span class="brand is-home">ERIC BROCK</span>
   <nav>
-    <a href="/work/">work</a>
-    <a href="/coaching/">coaching</a>
-    <a href="/about/">about</a>
+    <a href="#">email</a>
+    <a href="#">linkedin</a>
+    <a href="#">github</a>
   </nav>
 </header>
 <main class="home">
   <div id="home-name" class="home-name">ERIC BROCK</div>
 </main>
+<section class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="true" aria-controls="panel-work">[-] work</button>
+    <div class="accordion-panel" id="panel-work">
+      <div class="section-heading">Architecture</div>
+      <ul class="project-list">
+        <li><a href="/assets/Brock_Portfolio.pdf">View portfolio (PDF)</a></li>
+      </ul>
+      <dl class="spec-table">
+        <dt>Coursework</dt>
+        <dd>Fall 2025, Catholic University of America</dd>
+        <dt>Tools</dt>
+        <dd>Revit · AutoCAD · Forma · Rhinoceros 3D · SketchUp · Physical Model Making · Hand Drafting/Sketching</dd>
+      </dl>
+
+      <div class="section-heading">Art</div>
+      <p class="placeholder">More soon.</p>
+
+      <div class="section-heading">GitHub</div>
+      <p class="placeholder">More soon.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-coaching">[+] coaching</button>
+    <div class="accordion-panel" id="panel-coaching" hidden>
+      <p>In between studio and site visits, I coach students on college applications. Mostly summers, some during the school year. The work is figuring out what's actually there in a student's story, then helping them say it clearly.</p>
+      <p>As a first-gen student, I applied to around 40 schools without access to a counselor or consultant. What it takes to get in shouldn't be hidden behind a desk at some elite university.</p>
+      <p>I know how frustrating this process is for families navigating it for the first time. I've sat on both sides of that desk, as a student without a roadmap and as an admissions officer at two universities. My goal is to demystify it and help students directly.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-about">[+] about</button>
+    <div class="accordion-panel" id="panel-about" hidden>
+      <p>Eric Brock is an M.Arch III candidate at The Design School, Arizona State University. He completed his first year of graduate study at Catholic University of America, where coursework focused on classical architecture and technical drawing.</p>
+      <p>Before graduate school, Eric served as an admissions officer at Johns Hopkins University and Howard University, where he worked directly with prospective students and their families across thousands of applications.</p>
+      <p>Eric is interested in pursuing an architectural design career where the work is material and the impact is direct.</p>
+    </div>
+  </div>
+</section>
 <script>
 (function () {
   var el = document.getElementById('home-name');
@@ -83,6 +124,28 @@
     mx = -9999;
     my = -9999;
     schedule();
+  });
+})();
+
+(function () {
+  var triggers = document.querySelectorAll('.accordion-trigger');
+  triggers.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var wasOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      triggers.forEach(function (b) {
+        b.setAttribute('aria-expanded', 'false');
+        b.textContent = '[+] ' + b.textContent.replace(/^\[[+-]\]\s*/, '');
+        document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+      });
+
+      if (!wasOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = '[-] ' + btn.textContent.replace(/^\[[+-]\]\s*/, '');
+        panel.hidden = false;
+      }
+    });
   });
 })();
 </script>
