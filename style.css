@@ -52,10 +52,19 @@ main {
 
 main.home {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 3rem 1.5rem;
+}
+
+.portfolio-link {
+  margin-top: 1rem;
+}
+
+.portfolio-link a {
+  color: #000000;
 }
 
 .accordion {
