@@ -114,6 +114,8 @@ main.home {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.02em;
+  line-height: 1.6;
+  min-height: 3.6rem;
   width: 100%;
   margin: 2rem auto 0 auto;
   text-align: left;
@@ -195,6 +197,7 @@ p {
   header {
     flex-direction: column;
     align-items: flex-start;
+    padding: 2rem 1.5rem 0 1.5rem;
   }
 
   nav {
