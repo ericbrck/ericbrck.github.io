@@ -58,7 +58,7 @@ main.home {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.5rem 1rem 1.5rem;
 }
 
 .portfolio-link {
