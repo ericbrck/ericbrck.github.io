@@ -1,196 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eric Brock</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eric Brock is an M.Arch candidate at ASU building a foundation for computational architecture through coursework, research, and early writing.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Eric Brock — About</title>
+  <link rel="stylesheet" href="style.css?v=20260717f">
 </head>
 <body>
-<header>
-  <nav>
-    <a href="mailto:eric@brck.design">email</a>
-    <a href="https://www.linkedin.com/in/ebj/">linkedin</a>
-    <a href="https://github.com/ericbrck">github</a>
-  </nav>
-</header>
-<main class="home">
-  <div id="home-name" class="home-name">ERIC BROCK</div>
-  <p class="portfolio-link"><a href="/assets/Brock_Portfolio.pdf">View portfolio (PDF)</a></p>
-  <div class="home-typed-line">&gt; <span id="home-typed"></span><span class="home-typed-cursor">_</span></div>
-</main>
-<section class="accordion">
-  <div class="accordion-item">
-    <button class="accordion-trigger" aria-expanded="true" aria-controls="panel-about">[-] about</button>
-    <div class="accordion-panel" id="panel-about">
-      <p>Eric Brock is an M.Arch III candidate at The Design School, Arizona State University. He completed his first year of graduate study at Catholic University of America, where coursework focused on classical architecture and technical drawing.</p>
-      <p>Before graduate school, Eric served as an admissions officer at Johns Hopkins University and Howard University, where he worked directly with prospective students and their families across thousands of applications.</p>
-      <p>Eric is interested in pursuing an architectural design career where the work is material and the impact is direct.</p>
-    </div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Site navigation">
+      <a class="site-name" href="index.html" aria-label="Eric Brock, About page"><span id="site-name">ERICBROCK</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="active" aria-current="page" href="index.html">About</a>
+        <a href="now.html">Now</a>
+        <a href="work.html">Work</a>
+        <a href="coaching.html">Coaching</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="sidebar-links" aria-label="External links">
+        <a href="mailto:eric@brck.design">Email</a>
+        <a href="https://www.linkedin.com/in/ebj/">LinkedIn</a>
+        <a href="https://github.com/ericbrck">GitHub</a>
+      </div>
+    </aside>
+
+    <main id="content" tabindex="-1">
+      <article class="page about-page">
+        <header class="about-intro">
+          <h1 class="visually-hidden">About Eric Brock</h1>
+          <div class="typed-line" aria-label="M.Arch candidate at ASU focused on computational architecture">
+            <span aria-hidden="true">&gt;</span>
+            <span> M.Arch candidate at ASU focused on computational architecture</span><span class="typed-cursor" aria-hidden="true">_</span>
+          </div>
+        </header>
+
+        <a class="portfolio-cta" href="assets/Brock_Portfolio.pdf">
+          <span>
+            <strong>View architecture portfolio</strong>
+          </span>
+          <span class="cta-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="prose">
+          <p>Eric Brock is an M.Arch candidate at The Design School at Arizona State University. Through studio, technical coursework, research, and early writing, he is building the foundation for a future in computational architecture.</p>
+          <p>His path to architecture began at Catholic University of America, where he studied classical architecture and technical drawing before transferring to ASU. Prior to architecture school, he worked in undergraduate admissions at Johns Hopkins and Howard. That experience informs his interest in how technical knowledge is taught, accessed, and applied.</p>
+        </div>
+
+        <footer class="page-footer">
+          <span>Eric Brock</span>
+          <a href="now.html">Now →</a>
+        </footer>
+      </article>
+    </main>
   </div>
-
-  <div class="accordion-item">
-    <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-work">[+] work</button>
-    <div class="accordion-panel" id="panel-work" hidden>
-      <div class="section-heading">Architecture</div>
-      <dl class="spec-table">
-        <dt>Coursework</dt>
-        <dd>Fall 2025, Catholic University of America</dd>
-        <dt>Tools</dt>
-        <dd>Revit · AutoCAD · Forma · Rhinoceros 3D · SketchUp · Physical Model Making · Hand Drafting/Sketching</dd>
-      </dl>
-
-      <div class="section-heading">Art</div>
-      <p class="placeholder">More soon.</p>
-
-      <div class="section-heading">GitHub</div>
-      <p class="placeholder">More soon.</p>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-coaching">[+] coaching</button>
-    <div class="accordion-panel" id="panel-coaching" hidden>
-      <p>In between studio and site visits, I coach students on college applications. Mostly summers, some during the school year. The work is figuring out what's actually there in a student's story, then helping them say it clearly.</p>
-      <p>As a first-gen student, I applied to around 40 schools without access to a counselor or consultant. What it takes to get in shouldn't be hidden behind a desk at some elite university.</p>
-      <p>I know how frustrating this process is for families navigating it for the first time. I've sat on both sides of that desk, as a student without a roadmap and as an admissions officer at two universities. My goal is to demystify it and help students directly.</p>
-    </div>
-  </div>
-</section>
-<script>
-(function () {
-  var el = document.getElementById('home-name');
-  var text = el.textContent;
-  var glyphs = '/\\|.:-+*#';
-  el.innerHTML = '';
-  var spans = [];
-  for (var i = 0; i < text.length; i++) {
-    var ch = text[i];
-    var s = document.createElement('span');
-    s.textContent = ch;
-    s.style.display = 'inline-block';
-    s.dataset.orig = ch;
-    el.appendChild(s);
-    if (ch !== ' ') spans.push(s);
-  }
-
-  var typed = document.getElementById('home-typed');
-
-  var radius = 120;
-  var mx = -9999, my = -9999;
-  var ticking = false;
-
-  function render() {
-    ticking = false;
-    spans.forEach(function (s) {
-      var r = s.getBoundingClientRect();
-      var cx = r.left + r.width / 2;
-      var cy = r.top + r.height / 2;
-      var dx = mx - cx;
-      var dy = my - cy;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < radius) {
-        var force = 1 - dist / radius;
-        if (Math.random() < force) {
-          s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
-        } else {
-          s.textContent = s.dataset.orig;
-        }
-      } else {
-        s.textContent = s.dataset.orig;
-      }
-    });
-  }
-
-  function schedule() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(render);
-    }
-  }
-
-  window.addEventListener('mousemove', function (e) {
-    mx = e.clientX;
-    my = e.clientY;
-    schedule();
-  });
-
-  window.addEventListener('mouseleave', function () {
-    mx = -9999;
-    my = -9999;
-    schedule();
-  });
-
-  var phrases = [
-    'M.Arch, Candidate',
-    'Former Admissions Officer at Johns Hopkins University',
-    'Former Admissions Officer at Howard University',
-    'Admissions Coach',
-    'Design Professional'
-  ];
-  var pIndex = 0;
-  var displayed = '';
-
-  function advance() {
-    var target = ' ' + phrases[pIndex];
-    var common = 0;
-    while (common < displayed.length && common < target.length && displayed[common] === target[common]) {
-      common++;
-    }
-    var charIndex = displayed.length;
-
-    function eraseStep() {
-      if (charIndex > common) {
-        charIndex--;
-        displayed = displayed.slice(0, charIndex);
-        typed.textContent = displayed;
-        setTimeout(eraseStep, 45);
-      } else {
-        setTimeout(typeStep, 300);
-      }
-    }
-
-    function typeStep() {
-      if (charIndex < target.length) {
-        charIndex++;
-        displayed = target.slice(0, charIndex);
-        typed.textContent = displayed;
-        setTimeout(typeStep, 70);
-      } else {
-        displayed = target;
-        setTimeout(function () {
-          pIndex = (pIndex + 1) % phrases.length;
-          advance();
-        }, 3000);
-      }
-    }
-
-    eraseStep();
-  }
-  advance();
-})();
-
-(function () {
-  var triggers = document.querySelectorAll('.accordion-trigger');
-  triggers.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var panel = document.getElementById(btn.getAttribute('aria-controls'));
-      var wasOpen = btn.getAttribute('aria-expanded') === 'true';
-
-      triggers.forEach(function (b) {
-        b.setAttribute('aria-expanded', 'false');
-        b.textContent = '[+] ' + b.textContent.replace(/^\[[+-]\]\s*/, '');
-        document.getElementById(b.getAttribute('aria-controls')).hidden = true;
-      });
-
-      if (!wasOpen) {
-        btn.setAttribute('aria-expanded', 'true');
-        btn.textContent = '[-] ' + btn.textContent.replace(/^\[[+-]\]\s*/, '');
-        panel.hidden = false;
-      }
-    });
-  });
-})();
-</script>
+  <script src="site.js?v=20260717b"></script>
 </body>
 </html>
