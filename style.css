@@ -27,6 +27,10 @@ body {
   text-size-adjust: 100%;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 a {
   color: inherit;
   text-decoration-thickness: 1px;
@@ -97,6 +101,10 @@ a:focus-visible,
 }
 
 .site-name span span {
+  display: inline-block;
+}
+
+.scramble-text > span {
   display: inline-block;
 }
 
@@ -278,13 +286,15 @@ h1 {
 }
 
 .prose {
-  max-width: 44rem;
+  max-width: none;
+  width: 100%;
 }
 
 .prose p {
   font-size: clamp(0.96rem, 1.25vw, 1.04rem);
   line-height: 1.78;
   margin-bottom: 1.4rem;
+  max-width: 44rem;
 }
 
 .prose p:last-child {
@@ -365,14 +375,10 @@ h1 {
   font-weight: 400;
 }
 
-.page-footer {
+.page-end-rule {
   border-top: 1px solid var(--foreground);
-  display: flex;
-  font-size: 0.75rem;
-  justify-content: space-between;
+  height: 5.5625rem;
   margin-top: auto;
-  padding: 1.5rem 0 3rem;
-  text-transform: uppercase;
 }
 
 @media (max-width: 760px) {
